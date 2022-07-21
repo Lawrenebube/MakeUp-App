@@ -18,13 +18,13 @@
       <p class="or">-OR-</p>
       <form >
         <label for="FullName">Full Name</label>
-        <input type="text">
+        <input v-model="FullName" type="text">
          <label for="Email">Email</label>
-        <input type="email">
+        <input v-model="Email" type="email">
          <label for="Password">Password</label>
-        <input type="password">
+        <input v-model="password" type="password">
       </form>
-      <button>Sign Up</button>
+      <button @click="SubmitForm">Sign Up</button>
       <p class="account">Already have an account?
         <router-link to="/">Log in</router-link> 
 
@@ -32,6 +32,40 @@
     </div>
   </div>
 </template>
+  <script>
+    export default{
+      name:'signUp',
+      data(){
+        return{
+          FullName:'',
+          Email:'',
+          password:''
+        }
+      },
+      methods:{
+        SubmitForm(){
+          const data = { username:'this.FullName',
+          Email:'this.Email',
+          Password:'this.password' };
+          fetch('https://localhost:44309/api/User/signup', {
+          method: 'POST', // or 'PUT'
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+        })
+        // .catch((error) => {
+        //   console.error('Error:', error);
+        // });
+          // console.log(this.FullName, this.Email, this.password)
+        }
+      }
+    }
+  </script>
 <style scoped>
 .SignUp{
   display: flex;
