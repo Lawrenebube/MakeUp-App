@@ -52,7 +52,9 @@
         SubmitForm(){
           const data = { username:'this.FullName',
           Email:'this.Email',
-          Password:'this.password' };
+          Password:'this.password',
+          confirmPassword:'this.confirmPassword',
+          phoneNumber:'this.phoneNumber' };
           fetch('https://localhost:44309/api/User/signup', {
           method: 'POST', // or 'PUT'
           headers: {
