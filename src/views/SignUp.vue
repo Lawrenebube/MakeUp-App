@@ -23,6 +23,10 @@
         <input v-model="Email" type="email">
          <label for="Password">Password</label>
         <input v-model="password" type="password">
+        <label for="confirmPassword">Confirm Password</label>
+        <input v-model="confirmPassword" type="password">
+        <label for="phoneNumber">Phone Number</label>
+        <input v-model="phoneNumber" type="password">
       </form>
       <button @click="SubmitForm">Sign Up</button>
       <p class="account">Already have an account?
@@ -39,7 +43,9 @@
         return{
           FullName:'',
           Email:'',
-          password:''
+          password:'',
+          confirmPassword:'',
+          phoneNumber:''
         }
       },
       methods:{
@@ -71,10 +77,10 @@
   display: flex;
   justify-content: space-between;
   align-content: center;
-  max-width: 46em;
+  max-width: 49em;
   margin: 5em auto;
   color: white;
-  background-color: rgba(154, 13, 204, 1);
+  background-color: rgb(68, 17, 87);
   border-radius: 3.2em;
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
@@ -84,11 +90,11 @@
   height: 3.75em;
 }
 .makeupBrush {
-  height: 17em;
+  height: 18em;
   position: absolute;
   padding-top:0.5em;
-  transform: rotate(27.02deg);
-  left: 0.08em;
+  transform: rotate(25.02deg);
+  left: 0.01em;
   top: 6.13em;
 }
 .main {
