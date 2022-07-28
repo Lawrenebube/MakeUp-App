@@ -13,9 +13,9 @@
 
       <form >
         <label for="Email">Email</label>
-        <input type="email">
+        <input v-model="Email" type="email">
         <label for="Password">Password</label>
-        <input type="password">
+        <input v-model="password" type="password">
       </form>
       <div class="checkbox">
         <div class="check">
@@ -30,11 +30,16 @@
       <button>Login</button>
       <p class="account">Don't have an account?
         <router-link to="/Signup">Sign Up for free</router-link> 
-        <!-- <router-link to= "/homePage">HOMEPAGE</router-link> -->
       </p>
     </div>
   </div>
 </template>
+
+<script>
+  export default{
+    name:'loginPage'
+  }
+</script>
 
 
 <style scoped>
@@ -126,11 +131,4 @@ button {
 }
 </style>
 
-<script>
-// @ is an alias to /src
 
-export default {
-  name: 'logIn'
-  
-}
-</script>

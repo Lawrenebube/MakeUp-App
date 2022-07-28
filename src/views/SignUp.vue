@@ -26,11 +26,11 @@
         <label for="confirmPassword">Confirm Password</label>
         <input v-model="confirmPassword" type="password">
         <label for="phoneNumber">Phone Number</label>
-        <input v-model="phoneNumber" type="password">
+        <input v-model="phoneNumber" type="number">
       </form>
       <button @click="SubmitForm">Sign Up</button>
       <p class="account">Already have an account?
-        <router-link to="/">Log in</router-link> 
+        <router-link to="/loginPage">Log in</router-link> 
 
       </p>
     </div>
@@ -50,18 +50,19 @@
       },
       methods:{
         SubmitForm(){
-          const data = { username:'this.FullName',
-          Email:'this.Email',
-          Password:'this.password',
-          confirmPassword:'this.confirmPassword',
-          phoneNumber:'this.phoneNumber' };
-          fetch('https://localhost:44309/api/User/signup', {
-          method: 'POST', // or 'PUT'
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        })
+            const data = { 
+            username:this.FullName,
+            Email:this.Email,
+            Password:this.password,
+            confirmPassword:this.confirmPassword,
+            phoneNumber:this.phoneNumber };
+            fetch('https://localhost:44309/api/User/signup', {
+            method: 'POST', // or 'PUT'
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          })
         .then(response => response.json())
         .then(data => {
           console.log('Success:', data);
@@ -80,9 +81,9 @@
   justify-content: space-between;
   align-content: center;
   max-width: 49em;
-  margin: 5em auto;
+  margin: 2em auto;
   color: white;
-  background-color: rgb(68, 17, 87);
+  background-color: rgba(154, 13, 204, 1);
   border-radius: 3.2em;
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
@@ -96,14 +97,13 @@
   position: absolute;
   padding-top:0.5em;
   transform: rotate(25.02deg);
-  left: 0.01em;
+  left: 0.02em;
   top: 6.13em;
 }
 .main {
    background-color: rgba(0, 0, 0, 1);
-   padding: 3.75em 3.75em 3.75em 6em ; 
-   border-radius: 3.2em;
-
+   padding: 3em 5em 3em 6em ; 
+   border-radius: 3.2rem;
    align-content: center; 
    justify-content: center;
 }
